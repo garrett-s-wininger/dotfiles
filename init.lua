@@ -38,6 +38,9 @@ Plug 'L3MON4D3/LuaSnip'
 -- LSP setup
 Plug('VonHeikemen/lsp-zero.nvim', { branch = 'v2.x' })
 
+-- Colorscheme
+Plug 'catppuccin/nvim'
+
 vim.call('plug#end')
 -- End plugin requests
 
@@ -53,3 +56,6 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
+
+-- Colorscheme override
+vim.cmd [[ colorscheme catppuccin-mocha ]]
