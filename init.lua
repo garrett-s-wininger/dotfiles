@@ -19,6 +19,9 @@ Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
 Plug 'nvim-lua/plenary.nvim'
 Plug('nvim-telescope/telescope.nvim', { tag = '0.1.2'})
 
+-- Git integration
+Plug 'tpope/vim-fugitive'
+
 vim.call('plug#end')
 -- End plugin requests
 
