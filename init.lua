@@ -10,6 +10,9 @@ vim.cmd [[
 au BufRead,BufNewFile *.java setlocal tabstop=2 shiftwidth=2
 ]]
 
+-- Editor configuration
+vim.opt.splitbelow = true
+
 -- Plugin requests
 local Plug = vim.fn['plug#']
 vim.call('plug#begin')
