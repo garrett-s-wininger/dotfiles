@@ -17,10 +17,23 @@ vim.call('plug#begin')
 -- Fuzzy finding
 Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
 Plug 'nvim-lua/plenary.nvim'
-Plug('nvim-telescope/telescope.nvim', { tag = '0.1.2'})
+Plug('nvim-telescope/telescope.nvim', { tag = '0.1.2' })
 
 -- Git integration
 Plug 'tpope/vim-fugitive'
+
+-- LSP support
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+
+-- Autocompletion
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'L3MON4D3/LuaSnip'
+
+-- LSP setup
+Plug('VonHeikemen/lsp-zero.nvim', { branch = 'v2.x' })
 
 vim.call('plug#end')
 -- End plugin requests
@@ -28,3 +41,12 @@ vim.call('plug#end')
 -- Telescope configuration
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+
+-- LSP Configuration
+local lsp = require('lsp-zero').preset({})
+
+lsp.on_attach(function(client, bufnr)
+    lsp.default_keymaps({ buffer = bufnr })
+end)
+
+lsp.setup()
