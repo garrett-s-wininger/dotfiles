@@ -1,4 +1,5 @@
 -- Standard formatting
+vim.opt.colorcolumn = "80"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.expandtab = true
@@ -7,7 +8,7 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 0
 
 vim.cmd [[
-au BufRead,BufNewFile *.java setlocal tabstop=2 shiftwidth=2
+au BufRead,BufNewFile *.java setlocal tabstop=2 shiftwidth=2 colorcolumn=100
 ]]
 
 -- Editor configuration
@@ -39,7 +40,10 @@ Plug 'L3MON4D3/LuaSnip'
 Plug('VonHeikemen/lsp-zero.nvim', { branch = 'v2.x' })
 
 -- Colorscheme
-Plug 'catppuccin/nvim'
+Plug 'folke/tokyonight.nvim'
+
+-- Statusline
+Plug 'nvim-lualine/lualine.nvim'
 
 vim.call('plug#end')
 -- End plugin requests
@@ -60,4 +64,11 @@ end)
 lsp.setup()
 
 -- Colorscheme override
-vim.cmd [[ colorscheme catppuccin-mocha ]]
+vim.cmd.colorscheme "tokyonight-storm"
+
+-- Statusline setup
+local horizon = require('lualine.themes.horizon')
+
+require('lualine').setup({
+    options = { theme = horizon },
+})
