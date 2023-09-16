@@ -1,13 +1,8 @@
-# Neovim Config
-This repository contains the NeoVim configuration that I regularly use. The overall goal of the configuration is to remain as close to core NeoVim bindings and configuration
-as possible while adding some slight functional improvements to speed up my work within the editor. Deployment of the config is dependent upon setting up your environment 
-with [vim-plug](https://github.com/junegunn/vim-plug), copying or symlinking the init file to `$XDG_CONFIG_HOME`, and running `:PlugInstall`. No attempt is made to support 
-older versions of Neovim except for the current release.
+# Editor Configs
 
-## Customizations
-The modified init file provides the following customizations compared with a standard Neovim distribution:
-
-* Fuzzy finding for easier navigation through nested directories when compared with `netrw`
-* LSP installation support and basic configuration, implementation selection tailorable to each user
-* Git integration
-* Colorscheme updates
+This repository contains a number of editor configs that I typically use to
+speed up my development process. Generally, this fits into the category of
+text editors like `vim` or `neovim` but may also include other helpful configs
+for things like `tmux` which are essential to my workflow. Each subdirectory
+for a configured application will contain a README in order to understand how
+to apply the settings as well as why the settings were chosen.

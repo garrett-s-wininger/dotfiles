@@ -1,2 +1,5 @@
 # Vim directory listing
 .netrwhist
+
+# Python virtual environment
+venv/
