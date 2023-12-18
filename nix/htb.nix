@@ -8,6 +8,7 @@ mkShell {
         john
         mysql
         nmap
+        openvpn
         redis
         responder
         samba
