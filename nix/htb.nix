@@ -7,6 +7,7 @@ mkShell {
         gobuster
         inetutils
         john
+	metasploit
         mysql
         netcat
         nmap
