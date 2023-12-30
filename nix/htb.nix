@@ -7,7 +7,7 @@ mkShell {
         gobuster
         inetutils
         john
-	metasploit
+        metasploit
         mysql
         netcat
         nmap
@@ -15,5 +15,6 @@ mkShell {
         redis
         responder
         samba
+        sqlite
     ];
 }
