@@ -1,19 +1,19 @@
 # Tmux
 
 This directory contains the `tmux` configuration that I typically use for my
-workflows. In the general case, you will need to set up `TPM` prior to setting
-up the provided configs so that the appropriate settings are downloaded. After
-the plugin manager [setup](https://www.github.com/tmux-plugins/tpm) is up,
-you should simply be able to install, updgrade, or clean your plugins through
-the instructions on the `TPM` repo (namely `prefix + I`, `prefix + U`, and
-`prefix + alt + u`).
+workflows. Overall, the configuration for this application is only meant to
+provide a cleaner look that attempts to match the `neovim` v0.10+ default
+colorscheme as well as make some small quality-of-life improvements that I
+personally find to make my experience slightly better while developing.
 
-Overall, the configuration for this application is only meant to provide a
-cleaner look that attempts to match the `neovim` configuration in colorscheme.
+## Setup
 
-# Additional Requirements
+The only steps needed to get the config to take effect are to perform the
+following which will clone the repo and place the configuration file at the
+proper place on the filesystem:
 
-The theme relies on `Powerline` which, due to its icons, requires a patched
-font to render correctly but otherwise is functional without it. My choice is
-typically from [NerdFonts](https://www.nerdfonts.com) with `JetBrainsMono` as
-my selection.
+```
+${CHECKOUT_DIR}="YOUR_DIR_HERE"
+git clone https://github.com/garrett-s-wininger/dotfiles.git "${CHECKOUT_DIR}"
+ln -s "${CHECKOUT_DIR}/tmux/.tmux.conf" ~/.tmux.conf
+```
