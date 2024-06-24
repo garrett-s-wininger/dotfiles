@@ -9,7 +9,7 @@ XDG_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}"
 NVIM_CONFIG_DIR="${XDG_CONFIG_DIR}/nvim"
 
 if [ -d "${NVIM_CONFIG_DIR}" ]; then
-	rm -xfRI "${NVIM_CONFIG_DIR}"
+	rm -fR "${NVIM_CONFIG_DIR}"
 elif [ -L "${NVIM_CONFIG_DIR}" ]; then
 	rm -i "${NVIM_CONFIG_DIR}"
 fi
@@ -21,7 +21,7 @@ LAZY_DATA_DIR="${XDG_DATA_DIR}${LAZY_SUFFIX}"
 LAZY_STATE_DIR="${XDG_STATE_DIR}${LAZY_SUFFIX}"
 
 for DIR in "${LAZY_DATA_DIR}" "${LAZY_STATE_DIR}"; do
-	rm -xfRI "${DIR}"
+	rm -fR "${DIR}"
 done
 
 # Create a symbolic link over to this repo's config files
