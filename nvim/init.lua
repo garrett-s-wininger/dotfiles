@@ -11,19 +11,13 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- Keybinding - Diagnostics
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
-vim.keymap.set("n", "q", vim.diagnostic.setloclist)
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
 
 -- Keybinding - Navigate Different Windows/Panes
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>")
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>")
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>")
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>")
-
--- Keybinding - Adjust Window/Pane Layout
-vim.keymap.set("n", "<C-H>", "<C-w>H")
-vim.keymap.set("n", "<C-J>", "<C-w>J")
-vim.keymap.set("n", "<C-K>", "<C-w>K")
-vim.keymap.set("n", "<C-L>", "<C-w>L")
 
 -- Keybinding - Resize Panes
 -- Note: May need to be adjusted for different keyboards, alt codes
@@ -55,7 +49,7 @@ vim.opt.tabstop = 4
 if (vim.fn.has("nvim-0.10") == 0) then
     vim.cmd {
         cmd = "colorscheme",
-        arg = "habamax"
+        args = { "habamax" }
     }
 end
 
