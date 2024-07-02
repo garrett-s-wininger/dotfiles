@@ -22,8 +22,8 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>")
 -- Keybinding - Resize Panes
 -- Note: May need to be adjusted for different keyboards, alt codes
 vim.keymap.set("n", "˙", "<C-w>3<")
-vim.keymap.set("n", "∆", "<C-w>3+")
-vim.keymap.set("n", "˚", "<C-w>3-")
+vim.keymap.set("n", "˚", "<C-w>3+")
+vim.keymap.set("n", "∆", "<C-w>3-")
 vim.keymap.set("n", "¬", "<C-w>3>")
 
 -- Generic NVim Options and Default Language Presets
