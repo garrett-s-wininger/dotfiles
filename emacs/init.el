@@ -48,8 +48,7 @@
  '(display-line-numbers 'relative)
  '(display-line-numbers-type 'relative)
  '(global-display-line-numbers-mode nil)
- '(menu-bar-mode nil)
- '(package-selected-packages '(lua-mode)))
+ '(menu-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
