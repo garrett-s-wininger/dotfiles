@@ -39,6 +39,14 @@ return {
         end
     },
     {
+        "stevearc/oil.nvim",
+        cmd = "Oil",
+        dependencies = {
+            "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font
+        },
+        config = {}
+    },
+    {
         "nvim-telescope/telescope.nvim",
         event = "VimEnter",
         branch = "0.1.x",

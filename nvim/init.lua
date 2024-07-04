@@ -20,11 +20,10 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>")
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>")
 
 -- Keybinding - Resize Panes
--- Note: May need to be adjusted for different keyboards, alt codes
-vim.keymap.set("n", "˙", "<C-w>3<")
-vim.keymap.set("n", "˚", "<C-w>3+")
-vim.keymap.set("n", "∆", "<C-w>3-")
-vim.keymap.set("n", "¬", "<C-w>3>")
+vim.keymap.set("n", "<M-h>", "<C-w>3<")
+vim.keymap.set("n", "<M-j>", "<C-w>3-")
+vim.keymap.set("n", "<M-k>", "<C-w>3+")
+vim.keymap.set("n", "<M-l>", "<C-w>3>")
 
 -- Generic NVim Options and Default Language Presets
 vim.opt.breakindent = true
