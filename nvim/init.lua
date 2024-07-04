@@ -2,11 +2,8 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Install keymaps
-require("keymaps")
-
--- Setup autocommands
-require("autocommands")
+-- State that we Have a Nerd Font Installed, Allow Skipping of Icons
+vim.g.have_nerd_font = true
 
 -- Lazy NVim Configuration (Plugin Manager)
 local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
