@@ -1,23 +1,18 @@
-;; Hooks managed outside of customize
+;; Manual settings avoid custom-set-variable overwrite
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
-(add-hook 'before-save-hook (lambda ()
-                              (interactive)
-                              (delete-trailing-whitespace)
-                              (indent-region (point-min) (point-max) nil)
-                              (untabify (point-min) (point-max))))
 
 ;; Base package and archive configuration
 (require 'package)
 (add-to-list 'package-archives
-             '("melpa", "https://stable.melpa.org/packages/")
-             t)
+	     '("melpa", "https://stable.melpa.org/packages/")
+	     t)
 
 (setq package-selected-packages
       '(company ;
-        consult ;
-        magit ;
-        marginalia ;
-        vertico))
+	consult ;
+	magit ;
+	marginalia ;
+	vertico))
 
 (package-install-selected-packages t)
 (package-autoremove)
@@ -37,24 +32,12 @@
 
 (use-package marginalia
   :bind (:map minibuffer-local-map
-              ("M-A" . marginalia-cycle))
+	      ("M-A" . marginalia-cycle))
   :init (marginalia-mode))
 
 ;; Completion
 (use-package company
   :hook prog-mode)
-
-;; Modeline
-(setq custom-modeline/lhs " %@%+ %l,%c ")
-(defun custom-modeline/rhs () (format-time-string " %T "))
-
-(setq-default mode-line-format
-              (list
-               custom-modeline/lhs
-               '(:eval (propertize " %b " 'face 'mode-line-buffer-id))
-               `(vc-mode vc-mode " VC:None")
-               '(:eval (custom-modeline/rhs))
-               mode-line-end-spaces))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
