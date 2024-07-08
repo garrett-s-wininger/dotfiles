@@ -2,7 +2,7 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 -- Color and fonts
-config.color_scheme = 'Darcula (base16)'
+config.color_scheme = 'Dracula (Official)'
 config.font = wezterm.font('JetBrains Mono', { italic = true })
 config.font_size = 10
 

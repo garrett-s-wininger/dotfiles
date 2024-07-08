@@ -27,7 +27,11 @@ return {
             dependencies = {
                 {
                     "L3MON4D3/LuaSnip",
-                    build = "make install_jsregexp"
+                    build = function(_)
+                        if (vim.fn.executable("make") == 1) then
+                            os.execute("make install_jsregexp")
+                        end
+                    end
                 },
                 "saadparwaiz1/cmp_luasnip",
                 "hrsh7th/cmp-nvim-lsp",

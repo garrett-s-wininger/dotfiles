@@ -1,4 +1,4 @@
-;; Hooks managed outside of customize
+;; Settings managed outside of customize
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 (add-hook 'before-save-hook (lambda ()
                               (interactive)
@@ -9,14 +9,16 @@
 ;; Base package and archive configuration
 (require 'package)
 (add-to-list 'package-archives
-             '("melpa", "https://stable.melpa.org/packages/")
-             t)
+             '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(package-initialize)
 
 (setq package-selected-packages
       '(company ;
         consult ;
+        dracula-theme ;
         magit ;
         marginalia ;
+        mood-line ;
         vertico))
 
 (package-install-selected-packages t)
@@ -45,16 +47,14 @@
   :hook prog-mode)
 
 ;; Modeline
-(setq custom-modeline/lhs " %@%+ %l,%c ")
-(defun custom-modeline/rhs () (format-time-string " %T "))
+(use-package mood-line
+  :config
+  (setq mood-line-glyph-alist mood-line-glyphs-unicode)
+  (mood-line-mode))
 
-(setq-default mode-line-format
-              (list
-               custom-modeline/lhs
-               '(:eval (propertize " %b " 'face 'mode-line-buffer-id))
-               `(vc-mode vc-mode " VC:None")
-               '(:eval (custom-modeline/rhs))
-               mode-line-end-spaces))
+;; Theming
+(use-package dracula-theme
+  :config (load-theme 'dracula t))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -64,13 +64,11 @@
  '(column-number-mode t)
  '(display-line-numbers 'relative)
  '(display-line-numbers-type 'relative)
- '(global-display-line-numbers-mode nil)
- '(menu-bar-mode nil))
+ '(menu-bar-mode nil)
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(line-number-current-line ((t (:inherit line-number :foreground "white" :underline t :weight bold))))
- '(mode-line ((t (:background "darkorange" :foreground "black" :box (:line-width (1 . -1) :style released-button)))))
- '(mode-line-buffer-id ((t (:background "grey20" :foreground "white" :weight bold)))))
+ '(default ((t (:family "JetBrainsMono NF SemiBold" :foundry "outline" :slant italic :weight semi-bold :height 98 :width normal)))))
