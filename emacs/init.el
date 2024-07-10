@@ -3,7 +3,8 @@
 (add-hook 'before-save-hook (lambda ()
                               (interactive)
                               (delete-trailing-whitespace)
-                              (indent-region (point-min) (point-max) nil)
+                              (if (not (derived-mode-p 'yaml-mode))
+                                  (indent-region (point-min) (point-max) nil))
                               (untabify (point-min) (point-max))))
 
 ;; Base package and archive configuration
@@ -19,6 +20,7 @@
         magit ;
         marginalia ;
         mood-line ;
+        orderless ;
         vertico))
 
 (package-install-selected-packages t)
@@ -46,6 +48,11 @@
 (use-package company
   :hook prog-mode)
 
+(use-package orderless
+  :init
+  (setq completion-styles '(orderless basic)
+        completion-category-overrides '((file (styles partial-completion)))))
+
 ;; Modeline
 (use-package mood-line
   :config
@@ -55,6 +62,30 @@
 ;; Theming
 (use-package dracula-theme
   :config (load-theme 'dracula t))
+
+;; TreeSitter
+(setq treesit-language-source-alist
+      '((bash "https://github.com/tree-sitter/tree-sitter-bash")
+        (c "https://github.com/tree-sitter/tree-sitter-c")
+        (cpp "https://github.com/tree-sitter/tree-sitter-cpp")
+        (c-sharp "https://github.com/tree-sitter/tree-sitter-c-sharp")
+        (css "https://github.com/tree-sitter/tree-sitter-css")
+        (go "https://github.com/tree-sitter/tree-sitter-go")
+        (java "https://github.com/tree-sitter/tree-sitter-java")
+        (javascript "https://github.com/tree-sitter/tree-sitter-javascript")
+        (jsdoc "https://github.com/tree-sitter/tree-sitter-jsdoc")
+        (json "https://github.com/tree-sitter/tree-sitter-json")
+        (julia "https://github.com/tree-sitter/tree-sitter-julia")
+        (haskell "https://github.com/tree-sitter/tree-sitter-haskell")
+        (html "https://github.com/tree-sitter/tree-sitter-html")
+        (ocaml "https://github.com/tree-sitter/tree-sitter-ocaml" "master" "grammars/ocaml/src")
+        (php "https://github.com/tree-sitter/tree-sitter-php" "master" "php/src")
+        (python "https://github.com/tree-sitter/tree-sitter-python")
+        (ruby "https://github.com/tree-sitter/tree-sitter-ruby")
+        (rust "https://github.com/tree-sitter/tree-sitter-rust")
+        (scala "https://github.com/tree-sitter/tree-sitter-scala")
+        (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
+        (yaml "https://github.com/ikatyang/tree-sitter-yaml")))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
