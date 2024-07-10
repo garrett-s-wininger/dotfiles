@@ -16,10 +16,11 @@
 (setq package-selected-packages
       '(company ;
         consult ;
+        doom-modeline ;
         dracula-theme ;
+        lsp-mode ;
         magit ;
         marginalia ;
-        mood-line ;
         orderless ;
         vertico))
 
@@ -44,20 +45,25 @@
               ("M-A" . marginalia-cycle))
   :init (marginalia-mode))
 
-;; Completion
-(use-package company
-  :hook prog-mode)
-
 (use-package orderless
   :init
   (setq completion-styles '(orderless basic)
         completion-category-overrides '((file (styles partial-completion)))))
 
+;; Completion
+(use-package company
+  :config (add-to-list 'company-backends 'company-capf)
+  :hook prog-mode)
+
+;; LSP
+(use-package lsp-mode
+  :init (setq lsp-keymap-prefix "C-c l")
+  :hook prod-mode
+  :commands (lsp lsp-deferred))
+
 ;; Modeline
-(use-package mood-line
-  :config
-  (setq mood-line-glyph-alist mood-line-glyphs-unicode)
-  (mood-line-mode))
+(use-package doom-modeline
+  :init (doom-modeline-mode 1))
 
 ;; Theming
 (use-package dracula-theme
