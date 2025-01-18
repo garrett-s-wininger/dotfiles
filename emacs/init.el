@@ -18,7 +18,6 @@
         consult ;
         doom-modeline ;
         dracula-theme ;
-        lsp-mode ;
         magit ;
         marginalia ;
         orderless ;
@@ -54,12 +53,6 @@
 (use-package company
   :config (add-to-list 'company-backends 'company-capf)
   :hook prog-mode)
-
-;; LSP
-(use-package lsp-mode
-  :init (setq lsp-keymap-prefix "C-c l")
-  :hook prod-mode
-  :commands (lsp lsp-deferred))
 
 ;; Modeline
 (use-package doom-modeline
