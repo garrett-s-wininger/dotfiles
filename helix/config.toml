@@ -1,0 +1,4 @@
+theme = "everblush"
+
+[editor]
+line-number = "relative"
