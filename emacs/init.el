@@ -3,8 +3,6 @@
 (add-hook 'before-save-hook (lambda ()
                               (interactive)
                               (delete-trailing-whitespace)
-                              (if (not (derived-mode-p 'yaml-mode))
-                                  (indent-region (point-min) (point-max) nil))
                               (untabify (point-min) (point-max))))
 
 ;; Base package and archive configuration
