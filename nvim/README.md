@@ -26,5 +26,5 @@ standard Neovim distribution:
 ## Credits
 A large part of this new config version was based off of the open-source example
 developed as [Kickstart](https://github.com/nvim-lua/kickstart.nvim/tree/master)
-. Thank you to the developers of the project for providing a solid baseline to 
+. Thank you to the developers of the project for providing a solid baseline to
 improve the editing experience within Neovim.
